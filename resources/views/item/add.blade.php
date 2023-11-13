@@ -29,6 +29,11 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="author">著者</label>
+                            <input type="text" class="form-control" id="author" name="author" placeholder="著者">
+                        </div>
+
+                        <div class="form-group">
                             <label for="type">種別</label>
                             <input type="text" class="form-control" id="type" name="type" placeholder="種別">
                         </div>
@@ -37,6 +42,14 @@
                             <label for="detail">詳細</label>
                             <input type="text" class="form-control" id="detail" name="detail" placeholder="詳細説明">
                         </div>
+
+                        <div  class="form-group" style="margin-top: 10px;">
+                            <label for="image">画像アップロード（jpg／jpeg）</label>
+                            <!-- file形式　   -->
+                            <input type="file" name="image" accept="image/jpeg,image/jpg"> 
+                        </div>
+
+                        
                     </div>
 
                     <div class="card-footer">

@@ -14,7 +14,7 @@ class Item extends Model
     protected $fillable = [
         'user_id',
         'name',
-        'type',
+        'author',
         'detail',
     ];
 
@@ -33,4 +33,8 @@ class Item extends Model
      */
     protected $casts = [
     ];
+
+    public function reviews() {
+        return $this->hasMany(Review::class);
+    }
 }

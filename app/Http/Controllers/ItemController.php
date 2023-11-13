@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
+use Laravel\Ui\Presets\React;
 
 class ItemController extends Controller
 {
@@ -53,5 +54,69 @@ class ItemController extends Controller
         }
 
         return view('item.add');
+    }
+
+    public function edit(Request $request) {
+        $item = Item::find($request->id);
+        return view("item.edit",['item' => $item]);
+    }
+
+    public function update(Request $request) {
+        $item = Item::where('id', '=' , $request->id)->first();
+        $item->name = $request->name;
+        $item->user_id = Auth::id();
+        $item->type = $request->type;
+        $item->detail = $request->detail;
+
+        if ($request->hasFile('image')) 
+    {
+        // 新しい画像がアップロードされた場合
+
+        // 古いバイナリデータを削除する（存在する場合）
+        if ($item->image) {
+            $item->image = null; // 古いバイナリデータを削除
+        }
+
+        $image = $request->file('image');
+        $imageData = base64_encode(file_get_contents($image->getRealPath()));
+
+        // 新しいバイナリデータを更新
+        $item->image = $imageData;
+    }
+
+    $item->save();
+
+    return redirect('/items')->with('message', '商品情報の編集が完了しました');
+    }
+
+    public function delete(Request $request) {
+        $item = Item::find($request->id);
+        $item->delete();
+        return redirect('/items');
+    }
+
+    public function search(Request $request) {
+        $search1 = $request->input("keyword");
+       $search2 = $request->input("category_id");
+       if(!empty($search1) && !empty($search2) ) {
+           $items = Item::where('type' , '=',$search2)->where(function($query) use ($search1){
+             $query->where('name' ,'LIKE','%'.$search1.'%') ->orWhere('detail' ,'LIKE','%'.$search1.'%'); })->paginate(10);
+       } elseif(!empty($search1)) {
+           $items = Item::where('name' ,'LIKE','%'.$search1.'%')->orWhere('detail' ,'LIKE','%'.$search1.'%')->paginate(10);
+           
+       } elseif(!empty($search2)) {
+           $items = Item::where('type' , '=' ,$search2)->paginate(10);
+           
+       }
+        else {
+            //itemsテーブルからデータを取得
+           $items = Item::orderBy('id')->paginate(10);
+       }
+       $category = ["生活家電","キッチン家電","ビジュアル家電","オーディオ家電","理美容家電","季節家電","情報家電"];
+       
+       return view('item.index',[
+           'items' => $items, "category" => $category
+       ]);
+
     }
 }
