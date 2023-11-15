@@ -72,8 +72,8 @@ class ItemController extends Controller
         return view('item.add');
     }
 
-    public function edit(Request $request) {
-        $item = Item::where('id', '=', $request->id)->first();
+    public function edit($id) {
+        $item = Item::find($id);
         return view("item.edit",['item' => $item]);
     }
 
