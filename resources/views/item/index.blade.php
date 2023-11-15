@@ -66,7 +66,30 @@
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->author }}</td>
-                                    <td>{{ $item->type }}</td>
+                                    <td>@switch($item->type)
+                                    @case(1)
+                                    ビジネス
+                                    @break
+                                    @case(2)
+                                    小説
+                                    @break
+                                    @case(3)
+                                    漫画
+                                    @break
+                                    @case(4)
+                                    趣味・実用
+                                    @break
+                                    @case(5)
+                                    雑誌・ムック
+                                    @break
+                                    @case(6)
+                                    専門書
+                                    @break
+                                    @case(7)
+                                    学習参考書
+                                    @break
+                                    @endswitch
+                                </td>
                                     <td><a href="items/show/{{$item->id}}">詳細</a></td>
                                     <td><a href="items/edit/{{$item->id}}"><i class="bi bi-pencil-square"></i> 編集</a></td>
                                     <td><a href="items/delete/{{$item->id}}" onclick="return confirm('商品を削除しますか？');">

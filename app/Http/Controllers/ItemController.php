@@ -50,7 +50,12 @@ class ItemController extends Controller
             $this->validate($request, [
                 'name' => 'required|max:100',
             ]);
+
             
+            if ($request->has('image')) {
+                $image = base64_encode(file_get_contents($request->image));
+                
+            }
             // 商品登録
             Item::create([
                 'user_id' => Auth::user()->id,
@@ -58,6 +63,7 @@ class ItemController extends Controller
                 'name' => $request->name,
                 'type' => $request->type,
                 'detail' => $request->detail,
+                'image' => $image
             ]);
 
             return redirect('/items');
