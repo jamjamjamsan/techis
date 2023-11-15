@@ -35,7 +35,17 @@
 
                         <div class="form-group">
                             <label for="type">種別</label>
-                            <input type="text" class="form-control" id="type" name="type" placeholder="種別">
+                            <!--<input type="text" class="form-control" id="type" name="type" placeholder="種別">-->
+                            <select class="form-control" id="type" name="type" value="{{ old('type') }}">
+                                <option value="0">ジャンルを選択してください</option>
+                                <option value="1">ビジネス</option>
+                                <option value="2">小説</option>
+                                <option value="3">漫画</option>
+                                <option value="4">趣味・実用</option>
+                                <option value="5">雑誌・ムック</option>
+                                <option value="6">専門書</option>
+                                <option value="7">学習参考書</option>
+                            </select>
                         </div>
 
                         <div class="form-group">

@@ -30,6 +30,15 @@ class ItemController extends Controller
         return view('item.index', compact('items'));
     }
 
+    public function show($id) {
+        $item = Item::find($id);
+        $reviews = $item->reviews()->get();
+        $category = ["ビジネス","小説","漫画","趣味・実用","雑誌・ムック","専門書","学習参考書"];
+        return view('item.show',[
+            'item' => $item, "category" => $category , "reviews" => $reviews
+        ]);
+     }
+
     /**
      * 商品登録
      */
@@ -41,10 +50,11 @@ class ItemController extends Controller
             $this->validate($request, [
                 'name' => 'required|max:100',
             ]);
-
+            
             // 商品登録
             Item::create([
                 'user_id' => Auth::user()->id,
+                'author' => $request->author,
                 'name' => $request->name,
                 'type' => $request->type,
                 'detail' => $request->detail,
@@ -64,6 +74,7 @@ class ItemController extends Controller
     public function update(Request $request) {
         $item = Item::where('id', '=' , $request->id)->first();
         $item->name = $request->name;
+        $item->author = $request->author;
         $item->user_id = Auth::id();
         $item->type = $request->type;
         $item->detail = $request->detail;
