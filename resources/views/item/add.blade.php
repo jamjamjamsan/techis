@@ -37,7 +37,7 @@
                         <label for="type">種別</label>
                         <!--<input type="text" class="form-control" id="type" name="type" placeholder="種別">-->
                         <select class="form-control" id="type" name="type" value="{{ old('type') }}">
-                            <option value="0">ジャンルを選択してください</option>
+                            <option value="" disabled selected>ジャンルを選択してください</option>
                             <option value="1" @if(old('type')==1) selected @endif>ビジネス</option>
                             <option value="2" @if(old('type')==2) selected @endif>小説</option>
                             <option value="3" @if(old('type')==3) selected @endif>漫画</option>
