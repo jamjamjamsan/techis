@@ -50,12 +50,12 @@
 
                     <div class="form-group">
                         <label for="detail">詳細</label>
-                        <textarea name="detail" class="form-control" style="height: 192px;"  placeholder="詳細説明">{{ old('detail') }}"</textarea>
+                        <textarea name="detail" class="form-control" style="height: 192px;"  placeholder="詳細説明">{{ old('detail') }}</textarea>
                         
                     </div>
 
                     <div class="form-group" style="margin-top: 10px;">
-                        <label for="image">画像アップロード（jpg／jpeg）</label>
+                        <label for="image">画像アップロードjpg/jpeg</label>
                         <!-- file形式　   -->
                         <input type="file" name="image" accept="image/jpeg,image/jpg">
                     </div>
