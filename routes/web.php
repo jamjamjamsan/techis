@@ -32,8 +32,8 @@ Route::group(['middleware' => ['auth', 'can:admin']], function () {
     Route::get('/user/delete/{id}', [App\Http\Controllers\UserController::class, 'delete']);
 
 
-    Route::get('/items/create', [App\Http\Controllers\ItemController::class, 'create']);
-    Route::post('/items/store', [App\Http\Controllers\ItemController::class, 'store']);
+    Route::get('/items/add', [App\Http\Controllers\ItemController::class, 'add']);
+    Route::post('/items/add', [App\Http\Controllers\ItemController::class, 'add']);
     Route::get('/items/edit/{id}', [App\Http\Controllers\ItemController::class, 'edit']);
     Route::post('/items/update', [App\Http\Controllers\ItemController::class, 'update']);
     Route::get('/items/delete/{id}', [App\Http\Controllers\ItemController::class, 'delete']);
