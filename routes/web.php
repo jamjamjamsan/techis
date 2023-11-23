@@ -44,7 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post("reviews", [ReviewController::class, "store"])->name("reviews.store");
     Route::get('/items', [App\Http\Controllers\ItemController::class, 'index']);
-    Route::get('/items/show/{id}', [App\Http\Controllers\ItemController::class, 'show']);
+    Route::get('/items/show/{id}', [App\Http\Controllers\ItemController::class, 'show'])->name("item.show");
     Route::get('/items/search', [App\Http\Controllers\ItemController::class, 'search']);
 
     Route::post('/items/{id}/bookmark', [App\Http\Controllers\BookmarkController::class, 'store'])->name('bookmark.store');

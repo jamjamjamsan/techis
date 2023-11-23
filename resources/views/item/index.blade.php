@@ -97,7 +97,7 @@
                             </td>
                             <td><a href="items/show/{{$item->id}}">詳細</a></td>
                             @can("admin")
-                            <td><a href="items/edit/{{$item->id}}"><i class="bi bi-pencil-square"></i> 編集</a></td>
+                            <td><a href="{{route('item.show',['id' => $item->id  ])}}"><i class="bi bi-pencil-square"></i> 編集</a></td>
                             <td><a href="items/delete/{{$item->id}}" onclick="return confirm('商品を削除しますか？');">
                                     <i class="bi bi-trash3"></i> 削除</a></td>
                             @endcan
