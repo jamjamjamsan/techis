@@ -296,10 +296,18 @@ return [
             'icon' => 'fas fa-gamepad',
         ],
         [
-            'text' => '商品一覧',
-            'url'  => 'items/add',
+            'text' => 'ブックマーク一覧',
+            'url'  => 'items/bookmark',
             'icon' => 'fas fa-gamepad',
         ],
+
+        [
+            'text' => 'ユーザー一覧',
+            'url'  => 'user',
+            'icon' => 'fas fa-gamepad',
+            'can' => 'admin',
+        ],
+        
 
         // AdminLTEデフォルト
         /*

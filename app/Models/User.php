@@ -47,4 +47,20 @@ class User extends Authenticatable
     public function review() {
         return $this->hasMany(Review::class);
     }
+
+    
+
+    public function bookmarks(){
+        return $this->hasMany(Bookmark::class);
+   }
+
+   public function bookmark_items()
+   {
+       return $this->belongsToMany(Item::class, 'bookmarks', 'user_id', 'item_id');
+   }
+
+   public function is_bookmark($item)
+    {
+        return $this->bookmarks()->where('item_id', $item)->exists();
+    }
 }

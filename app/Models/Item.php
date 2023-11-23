@@ -17,6 +17,7 @@ class Item extends Model
         "type",
         'author',
         'detail',
+        'image'
     ];
 
     /**
@@ -37,5 +38,9 @@ class Item extends Model
 
     public function reviews() {
         return $this->hasMany(Review::class);
+    }
+
+    public function bookMarks(){
+        return $this->hasMany(Bookmark::class);
     }
 }

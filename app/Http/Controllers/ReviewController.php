@@ -12,7 +12,7 @@ class ReviewController extends Controller
     /**
      * Display a listing of the resource.
      */
-    
+
 
     /**
      * Store a newly created resource in storage.
@@ -31,11 +31,9 @@ class ReviewController extends Controller
         $review->save();
 
         return back();
-
     }
 
     /**
      * Display the specified resource.
      */
-   
 }

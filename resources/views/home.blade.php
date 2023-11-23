@@ -3,11 +3,15 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>書籍管理システム</h1>
+    <h1 class="text-center">書籍管理システム</h1>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <div class="text-center">
+        <p>書籍管理システムへようこそ</p>
+        <img src="{{ asset('storage/book.jpeg') }}" alt="" class="img-fluid">
+    </div>
+    
 @stop
 
 @section('css')
