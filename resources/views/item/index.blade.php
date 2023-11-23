@@ -105,6 +105,11 @@
                         @endforeach
                     </tbody>
                 </table>
+                 <!-- ページネーションを表示 -->
+                 <div class="paginationWrap">
+                    {{ $items->links() }}
+                </div>
+
             </div>
 
 
