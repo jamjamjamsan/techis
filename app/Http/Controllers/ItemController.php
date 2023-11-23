@@ -96,7 +96,7 @@ class ItemController extends Controller
             $item->save();
 
 
-            return redirect('/items');
+            return redirect('/items')->with("message", "商品を登録しました");
         }
 
         return view('item.add');
@@ -141,7 +141,7 @@ class ItemController extends Controller
     {
         $item = Item::find($request->id);
         $item->delete();
-        return redirect('/items');
+        return redirect('/items')->with('message', '商品削除が完了しました。');
     }
 
     public function search(Request $request)

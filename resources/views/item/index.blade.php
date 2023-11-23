@@ -2,7 +2,9 @@
 
 @section('title', '商品一覧')
 
-
+@if(session('message'))
+    <div class="alert alert-success">{{session('message')}}</div>
+@endif
 @section('content_header')
 <h1>商品一覧</h1>
 @stop
