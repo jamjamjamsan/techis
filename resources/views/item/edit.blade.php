@@ -19,7 +19,7 @@
         @endif
 
         <div class="card card-primary">
-            <form action="{{url('/items/update', $item)}}" method="post" enctype="multipart/form-data">
+            <form action= "/items/update" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                     <p>商品ID：{{$item->id}}</p>
