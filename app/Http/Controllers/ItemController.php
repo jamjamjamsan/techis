@@ -53,7 +53,7 @@ class ItemController extends Controller
                 'name' => 'required|string|max:100',
                 'author' => 'required|string|max:100',
                 'type' => 'required|',
-                'detail' => 'string|max:500',
+                'detail' => 'required|string|max:500',
                 'image' => 'nullable|image|mimes:jpeg,jpg|max:50',
             ];
 
@@ -70,6 +70,7 @@ class ItemController extends Controller
                     'author.max' => '著者は100文字以内です。',
                     'detail.string' => '使用できない文字が含まれています。',
                     'detail.max' => '詳細は500文字以内です。',
+                    'detail.required' => '商品詳細は必須です。',
                     'image.image' => 'imageにはファイルを指定してください。',
                     'image.mimes' => 'jpeg／jpg以外のファイルは添付できません。',
                     'image.max' => '50KBを超えるファイルは添付できません。',
