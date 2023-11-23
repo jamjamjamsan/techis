@@ -110,6 +110,35 @@ class ItemController extends Controller
 
     public function update(Request $request)
     {
+        // バリデーションルール
+        $rules = [
+            'name' => 'required|string|max:100',
+            'author' => 'required|string|max:100',
+            'type' => 'required|',
+            'detail' => 'required|string|max:500',
+            'image' => 'nullable|image|mimes:jpeg,jpg|max:50',
+        ];
+
+        // バリデーションを実行
+        $request->validate(
+            $rules,
+            [
+                'name.required' => '商品名は必須です。',
+                'name.string' => '使用できない文字が含まれています。',
+                'name.max' => '商品名は100文字以内です。',
+                'type.required' => '商品種別を選択してください。',
+                'author.required' => '著者は必須です。',
+                'author.string' => '使用できない文字が含まれています。',
+                'author.max' => '著者は100文字以内です。',
+                'detail.string' => '使用できない文字が含まれています。',
+                'detail.max' => '詳細は500文字以内です。',
+                'detail.required' => '商品詳細は必須です。',
+                'image.image' => 'imageにはファイルを指定してください。',
+                'image.mimes' => 'jpeg／jpg以外のファイルは添付できません。',
+                'image.max' => '50KBを超えるファイルは添付できません。',
+            ]
+        );
+
         $item = Item::where('id', '=', $request->id)->first();
         $item->name = $request->name;
         $item->author = $request->author;
