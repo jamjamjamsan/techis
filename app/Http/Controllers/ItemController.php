@@ -54,7 +54,7 @@ class ItemController extends Controller
                 'author' => 'required|string|max:100',
                 'type' => 'required|',
                 'detail' => 'string|max:500',
-                'image' => 'nullable|image|mimes:jpeg,jpg|max:100',
+                'image' => 'nullable|image|mimes:jpeg,jpg|max:50',
             ];
 
             // バリデーションを実行
@@ -72,7 +72,7 @@ class ItemController extends Controller
                     'detail.max' => '詳細は500文字以内です。',
                     'image.image' => 'imageにはファイルを指定してください。',
                     'image.mimes' => 'jpeg／jpg以外のファイルは添付できません。',
-                    'image.max' => '100KBを超えるファイルは添付できません。',
+                    'image.max' => '50KBを超えるファイルは添付できません。',
                 ]
             );
 

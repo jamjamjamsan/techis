@@ -51,7 +51,7 @@
                     <div class="form-group">
                         <label for="detail">詳細</label>
                         <textarea name="detail" class="form-control" style="height: 192px;" value="{{ old('detail') }}" placeholder="詳細説明"></textarea>
-                        <input type="text" class="form-control" id="detail" name="detail" placeholder="詳細説明" value="{{ old('detail') }}">
+                        
                     </div>
 
                     <div class="form-group" style="margin-top: 10px;">
