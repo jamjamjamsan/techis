@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-<h1>ブックマーク一覧</h1>
+<h1>お気に入り一覧</h1>
 @stop
 
 @section('content')

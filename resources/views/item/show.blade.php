@@ -86,7 +86,7 @@
                         @enderror
                         <textarea name="content" class="form-control m-2"></textarea>
                         <input type="hidden" name="item_id" value="{{$item->id}}">
-                        <button type="submit" class="btn  ml-2">レビューを追加</button>
+                        <button type="submit" class="btn  ml-2 btn-secondary">レビューを追加</button>
                     </form>
                 </div>
             </div>
