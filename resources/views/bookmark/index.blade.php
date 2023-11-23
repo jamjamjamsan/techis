@@ -49,7 +49,7 @@
                     @break
                     @endswitch
                 </td>
-                <td><a href="items/show/{{$item->id}}">詳細</a></td>
+                <td><a href="{{route('item.show',['id' => $item->id  ])}}">詳細</a></td>
             </tr>
             @endforeach
         </tbody>
