@@ -51,9 +51,10 @@ class ItemController extends Controller
             // バリデーションルール
             $rules = [
                 'name' => 'required|string|max:100',
+                'author' => 'required|string|max:100',
                 'type' => 'required|',
-                'detail' => 'required|string|max:500',
-                'image' => 'nullable|image|mimes:jpeg,jpg|max:50',
+                'detail' => 'string|max:500',
+                'image' => 'nullable|image|mimes:jpeg,jpg|max:100',
             ];
 
             // バリデーションを実行
@@ -64,12 +65,14 @@ class ItemController extends Controller
                     'name.string' => '使用できない文字が含まれています。',
                     'name.max' => '商品名は100文字以内です。',
                     'type.required' => '商品種別を選択してください。',
-                    'detail.required' => '商品詳細は必須です。',
+                    'author.required' => '著者は必須です。',
+                    'author.string' => '使用できない文字が含まれています。',
+                    'author.max' => '著者は100文字以内です。',
                     'detail.string' => '使用できない文字が含まれています。',
                     'detail.max' => '詳細は500文字以内です。',
                     'image.image' => 'imageにはファイルを指定してください。',
                     'image.mimes' => 'jpeg／jpg以外のファイルは添付できません。',
-                    'image.max' => '50KBを超えるファイルは添付できません。',
+                    'image.max' => '100KBを超えるファイルは添付できません。',
                 ]
             );
 

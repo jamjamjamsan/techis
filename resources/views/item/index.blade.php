@@ -108,6 +108,7 @@
                  <!-- ページネーションを表示 -->
                  <div class="paginationWrap">
                     {{ $items->links() }}
+                    {{ $items->appends(['id' => $name, 'category' => $category])->links()  }}
                 </div>
 
             </div>

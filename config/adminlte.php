@@ -296,7 +296,7 @@ return [
             'icon' => 'fas fa-gamepad',
         ],
         [
-            'text' => 'ブックマーク一覧',
+            'text' => 'お気に入り一覧',
             'url'  => 'items/bookmark',
             'icon' => 'fas fa-gamepad',
         ],
