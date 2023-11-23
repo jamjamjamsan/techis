@@ -9,7 +9,7 @@
 @section('content')
     <div class="text-center">
         <p>書籍管理システムへようこそ</p>
-        <img src="{{ asset('storage/book.jpeg') }}" alt="" class="img-fluid">
+        <img src="{{ asset('images/book.jpeg') }}" alt="" class="img-fluid">
     </div>
     
 @stop
