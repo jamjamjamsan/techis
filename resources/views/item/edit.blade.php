@@ -37,7 +37,7 @@
                     <div class="form-group">
                         <label for="type">種別</label>
                         <select class="form-control" id="type" name="type" value="{{ old('type') }}">
-                            <option value="0">ジャンルを選択してください</option>
+                            <option value="" disabled >ジャンルを選択してください</option>
                             <option value="1" {{ old("type", $item->type) == 1 ? "selected" : "" }}>ビジネス</option>
                             <option value="2" {{ old("type", $item->type) == 2 ? "selected" : "" }}>小説</option>
                             <option value="3" {{ old("type", $item->type) == 3 ? "selected" : "" }}>漫画</option>
